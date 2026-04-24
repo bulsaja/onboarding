@@ -36,6 +36,13 @@ And [HOWA-9](/HOWA/issues/HOWA-9) content generation and review-gate artifacts:
 - Rejection feedback loop with revision/resubmission support
 - Per-artifact audit trail for generation/review decisions
 
+And [HOWA-10](/HOWA/issues/HOWA-10) publish execution artifacts:
+
+- Channel connector abstraction with first concrete connector `InMemoryMetaAdsConnector`
+- Timezone-safe publish scheduler with execution-window validation
+- Retry with exponential backoff and dead-letter diagnostics
+- Delivery status callback/webhook ingestion with state visibility
+
 ## Repository Layout
 
 - `src/`: application and domain source code
