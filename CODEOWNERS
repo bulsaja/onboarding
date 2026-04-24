@@ -1,0 +1,7 @@
+# Default ownership until role-specific GitHub teams are finalized.
+* @howzero/cto
+
+# CI and release process ownership.
+/.github/ @howzero/cto
+/docs/ @howzero/cto
+/scripts/ @howzero/cto
