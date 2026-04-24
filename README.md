@@ -21,6 +21,13 @@ And [HOWA-7](/HOWA/issues/HOWA-7) orchestration baseline artifacts:
 - Retry/backoff and idempotency guards in `src/orchestration`
 - Structured trace-aware orchestration logs and worker lifecycle controls
 
+And [HOWA-8](/HOWA/issues/HOWA-8) campaign brief intake and planning artifacts:
+
+- Brief intake endpoint/form schema contract in `src/planning/briefs.ts`
+- Validation + normalization for brief submission payloads
+- Campaign planning artifact generation from brief inputs
+- Versioned plan persistence and audit history via `InMemoryCampaignPlanningStore`
+
 ## Repository Layout
 
 - `src/`: application and domain source code
@@ -52,6 +59,38 @@ orchestrator.enqueueStep({
 });
 
 await orchestrator.processNext();
+```
+
+## Brief Intake Quick Example
+
+```ts
+import { InMemoryCampaignPlanningStore, submitCampaignBrief } from './src/planning';
+
+const store = new InMemoryCampaignPlanningStore();
+const submission = submitCampaignBrief(
+  {
+    briefId: 'brief_launch_01',
+    clientId: 'client_acme',
+    requestedBy: 'ops@acme.test',
+    submittedAt: '2026-04-24T00:00:00.000Z',
+    campaignName: 'Acme Summer Launch',
+    objective: 'lead_generation',
+    timezone: 'Asia/Seoul',
+    budget: { amount: 12000, currency: 'USD' },
+    schedule: {
+      startDate: '2026-05-01T00:00:00.000Z',
+      endDate: '2026-05-30T23:59:59.000Z'
+    },
+    targetAudience: { persona: 'B2B marketing manager', primaryRegion: 'South Korea' },
+    channels: ['meta_ads', 'google_ads'],
+    successMetrics: ['qualified_leads', 'cost_per_lead']
+  },
+  { store }
+);
+
+if (submission.status === 'accepted') {
+  console.log(submission.plan.planId); // brief_launch_01:v1
+}
 ```
 
 ## Quickstart
