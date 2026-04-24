@@ -51,6 +51,13 @@ And [HOWA-11](/HOWA/issues/HOWA-11) reporting and dashboard artifacts:
 - Dashboard query contract with caching and refresh cadence metadata
 - Scheduled refresh monitor with run history (`ran` / `skipped_not_due`)
 
+And [HOWA-12](/HOWA/issues/HOWA-12) reliability/security hardening artifacts:
+
+- SLO definitions and critical-flow monitoring for latency/error/queue depth
+- Load-test + failure-injection harness for reliability validation
+- RBAC baseline, authorization audit logging, and secret rotation planning
+- Incident/on-call, security, and launch-readiness runbooks in `docs/`
+
 ## Repository Layout
 
 - `src/`: application and domain source code
