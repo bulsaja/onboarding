@@ -43,6 +43,14 @@ And [HOWA-10](/HOWA/issues/HOWA-10) publish execution artifacts:
 - Retry with exponential backoff and dead-letter diagnostics
 - Delivery status callback/webhook ingestion with state visibility
 
+And [HOWA-11](/HOWA/issues/HOWA-11) reporting and dashboard artifacts:
+
+- Post-publication metrics ingestion/store with validation
+- Campaign + account rollups (including attribution view) in reporting service
+- Reporting API contract (`account` and `campaign` report endpoints)
+- Dashboard query contract with caching and refresh cadence metadata
+- Scheduled refresh monitor with run history (`ran` / `skipped_not_due`)
+
 ## Repository Layout
 
 - `src/`: application and domain source code
