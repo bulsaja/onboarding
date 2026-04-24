@@ -28,6 +28,14 @@ And [HOWA-8](/HOWA/issues/HOWA-8) campaign brief intake and planning artifacts:
 - Campaign planning artifact generation from brief inputs
 - Versioned plan persistence and audit history via `InMemoryCampaignPlanningStore`
 
+And [HOWA-9](/HOWA/issues/HOWA-9) content generation and review-gate artifacts:
+
+- Prompt/template registry for content types in `src/content/pipeline.ts`
+- Deterministic rendering pipeline using stable template + input hashing
+- Review state machine (`draft -> review -> approved/rejected`)
+- Rejection feedback loop with revision/resubmission support
+- Per-artifact audit trail for generation/review decisions
+
 ## Repository Layout
 
 - `src/`: application and domain source code
